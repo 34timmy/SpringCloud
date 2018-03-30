@@ -27,11 +27,11 @@ public class BookServiceApplication {
 
 	@GetMapping("")
 	public List<Book> findAllBooks() {
-		return bookList;
+ 		return bookList;
 	}
 
 	@GetMapping("/{bookId}")
-	public Book findBook(@PathVariable Long bookId) {
+	public Book findBook(@PathVariable("bookId") Long bookId) {
 		return bookList.stream().filter(b -> b.getId().equals(bookId)).findFirst().orElse(null);
 	}
 }
